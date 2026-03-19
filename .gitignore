@@ -2,7 +2,7 @@
 .DS_Store
 Thumbs.db
 
-# 环境变量（保护敏感信息）
+# 環境変数（機密情報の保護）
 .env
 .env.*
 !.env.example
@@ -33,7 +33,7 @@ yarn-error.log*
 *.swp
 *.swo
 
-# 测试
+# テスト
 .pytest_cache/
 .coverage
 htmlcov/
@@ -42,20 +42,20 @@ htmlcov/
 .cursor/
 .claude/
 
-# 文档与测试程序
+# ドキュメントとテストプログラム
 mydoc/
 mytest/
 
-# 日志文件
+# ログファイル
 backend/logs/
 log/
 *.log
 *.pid
 
-# 上传文件
+# アップロードファイル
 backend/uploads/
 
-# Docker 数据
+# Docker データ
 data/
 
 # 起動スクリプトの一時ファイル
