@@ -1,0 +1,80 @@
+# OS
+.DS_Store
+Thumbs.db
+
+# 环境变量（保护敏感信息）
+.env
+.env.*
+!.env.example
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+.venv/
+venv/
+ENV/
+.eggs/
+*.egg-info/
+dist/
+build/
+
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# 测试
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Cursor
+.cursor/
+.claude/
+
+# 文档与测试程序
+mydoc/
+mytest/
+
+# 日志文件
+backend/logs/
+log/
+*.log
+*.pid
+
+# 上传文件
+backend/uploads/
+
+# Docker 数据
+data/
+
+# 起動スクリプトの一時ファイル
+.backend.pid
+.frontend.pid
+
+# シークレット / 証明書 / ローカルDB
+*.pem
+*.key
+*.crt
+*.p12
+*.sqlite
+*.sqlite3
+*.db
+
+# テストデータ
+test_data/
+
+# 公開対象外のコミュニティ / デモ素材
+static/image/QQ群.png
+static/image/武大模拟演示封面.png
+static/image/红楼梦模拟推演封面.jpg

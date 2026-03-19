@@ -1,0 +1,439 @@
+{
+  "navbar": {
+    "brand": "MIROFISH",
+    "github_link": "GitHubページへアクセス"
+  },
+  "hero": {
+    "tag": "シンプルで汎用的な集団知能エンジン",
+    "version": "v0.1 プレビュー",
+    "title_main": "あらゆるレポートを",
+    "title_gradient": "未来推演へ接続する",
+    "desc": "一段落のテキストでも、MiroFish はそこに含まれる現実の種から並行世界を立ち上げます。知識グラフ、エージェント、シミュレーション環境を連動させ、複雑な集団相互作用のなかで次の打ち手を見通します。",
+    "slogan": "エージェント群のなかで未来を予演し、決断の精度を高める"
+  },
+  "dashboard": {
+    "system_status": "システム状態",
+    "ready_title": "準備完了",
+    "ready_desc": "予測エンジンは待機中です。複数の非構造化データをアップロードして、シミュレーションの流れを初期化できます。",
+    "metrics": {
+      "low_cost": "低コスト",
+      "low_cost_label": "通常シミュレーション平均 5$/回",
+      "high_avail": "高可用性",
+      "high_avail_label": "最大 100 万エージェント規模"
+    },
+    "workflow": {
+      "header": "ワークフロー",
+      "step1_title": "ナレッジグラフ構築",
+      "step1_desc": "現実の種を抽出し、個体と集団へ記憶を注入しながら GraphRAG を構築",
+      "step2_title": "環境構築",
+      "step2_desc": "関係抽出、ペルソナ生成、環境パラメータの自動設定",
+      "step3_title": "シミュレーション開始",
+      "step3_desc": "2 つの世界を並列実行し、記憶と相互作用を逐次更新",
+      "step4_title": "レポート生成",
+      "step4_desc": "Report Agent が各種ツールを使って結果を統合分析",
+      "step5_title": "深層対話",
+      "step5_desc": "エージェントや Report Agent と直接対話して掘り下げる"
+    }
+  },
+  "console": {
+    "step1_label": "01 / 現実の種",
+    "step1_format": "対応フォーマット: PDF, MD, TXT",
+    "upload_placeholder": "ファイルをドラッグ＆ドロップ",
+    "upload_hint": "またはクリックしてファイルを選択",
+    "input_params": "入力パラメータ",
+    "step2_label": ">_ 02 / シミュレーション指示",
+    "prompt_placeholder": "// 自然言語でシミュレーションや予測したい内容を入力してください（例: 特定の政策発表後に世論がどう変化するか）",
+    "engine_badge": "エンジン: MiroFish-V1.0",
+    "start_btn": "エンジン起動",
+    "starting_btn": "初期化中..."
+  },
+  "history": {
+    "title": "推演履歴",
+    "no_files": "ファイルなし",
+    "more_files": "+{count} 個のファイル",
+    "not_named": "名称未設定のプロジェクト",
+    "modal": {
+      "simulation_requirement": "シミュレーション要件",
+      "related_files": "関連ファイル",
+      "playback": "推演リプレイ",
+      "playback_hint": "Step3「シミュレーション開始」と Step5「深層対話」は実行中のセッションが必要です。履歴からの再生には対応していません。"
+    }
+  },
+  "main_view": {
+    "modes": {
+      "graph": "グラフ",
+      "split": "分割表示",
+      "workbench": "ワークベンチ"
+    },
+    "status": {
+      "error": "エラー",
+      "ready": "準備完了",
+      "building_graph": "グラフ構築中",
+      "generating_ontology": "オントロジー生成中",
+      "initializing": "初期化中",
+      "preparing": "準備中",
+      "running": "実行中",
+      "completed": "完了",
+      "generating": "生成中",
+      "processing": "処理中"
+    },
+    "steps": {
+      "step1": "グラフ構築",
+      "step2": "環境構築",
+      "step3": "シミュレーション開始",
+      "step4": "レポート生成",
+      "step5": "深層対話"
+    }
+  },
+  "workflow": {
+    "panel_title": "進行状況",
+    "overall": {
+      "completed": "完了",
+      "failed": "失敗",
+      "running": "進行中",
+      "idle": "待機中"
+    },
+    "stage": {
+      "upload": "ファイルアップロード",
+      "ontology": "ドキュメント解析",
+      "graph_build": "グラフ構築",
+      "simulation_prepare": "シミュレーション準備",
+      "simulation_run": "シミュレーション実行",
+      "report_generate": "レポート生成"
+    },
+    "messages": {
+      "completed": "完了",
+      "running": "進行中",
+      "failed": "失敗",
+      "waiting": "待機中",
+      "files_uploaded": "ファイルをアップロードしました",
+      "waiting_analysis": "ドキュメント解析待ちです",
+      "analyzing_documents": "ドキュメントを解析しています",
+      "ontology_generated": "オントロジー生成が完了しました",
+      "waiting_graph": "グラフ構築待ちです",
+      "building_graph": "グラフを構築しています",
+      "graph_ready": "グラフの準備ができました",
+      "project_failed": "プロジェクト処理に失敗しました",
+      "preparing_simulation": "シミュレーション環境を準備しています",
+      "simulation_ready": "シミュレーションの準備ができました",
+      "waiting_start": "シミュレーション開始待ちです",
+      "simulation_running": "シミュレーションを実行しています",
+      "simulation_completed": "シミュレーションが完了しました",
+      "simulation_stopped": "シミュレーションを停止しました",
+      "report_started": "レポート生成を開始しました",
+      "report_completed": "レポート生成が完了しました"
+    }
+  },
+  "graph_panel": {
+    "title": "グラフ関係ビュー",
+    "refresh": "再読み込み",
+    "maximize": "最大化 / 元に戻す",
+    "updating": "リアルタイム更新中...",
+    "live_memory_updating": "GraphRAG の長短期記憶をリアルタイム更新中",
+    "finished_hint": "一部の反映処理が残っています。少し待ってから手動更新してください。",
+    "close_hint": "ヒントを閉じる",
+    "node_details": "ノード詳細",
+    "relationship": "関係詳細",
+    "self_relations": "自己関係",
+    "items": "{count} 件",
+    "name": "名称",
+    "uuid": "UUID",
+    "created": "作成日時",
+    "properties": "属性",
+    "none": "なし",
+    "summary": "要約",
+    "labels": "ラベル",
+    "label": "ラベル",
+    "type": "タイプ",
+    "fact": "内容",
+    "episodes": "エピソード",
+    "valid_from": "有効開始",
+    "loading": "グラフデータを読み込み中...",
+    "waiting": "オントロジー生成待ち...",
+    "entity_types": "エンティティタイプ",
+    "show_edge_labels": "エッジラベルを表示"
+  },
+  "persona": {
+    "profession_unknown": "職業未設定",
+    "no_bio": "プロフィールはまだありません",
+    "gender": {
+      "male": "男性",
+      "female": "女性",
+      "other": "その他"
+    },
+    "bio": "プロフィール"
+  },
+  "components": {
+    "step1": {
+      "ontology": "オントロジー生成",
+      "graphrag": "GraphRAG構築",
+      "complete": "構築完了",
+      "status": {
+        "completed": "完了",
+        "processing": "生成中",
+        "waiting": "待機中",
+        "active": "進行中"
+      },
+      "desc": {
+        "ontology": "LLM がドキュメント内容とシミュレーション要件を分析し、現実の種から最適なオントロジー構造を自動生成します。",
+        "graphrag": "生成されたオントロジーに基づき、ドキュメントをチャンク化して知識グラフを構築し、エンティティ・関係・時系列記憶を整理します。",
+        "complete": "グラフ構築が完了しました。次のステップへ進んでシミュレーション環境を準備してください。"
+      },
+      "stats": {
+        "nodes": "エンティティノード",
+        "edges": "関係エッジ",
+        "types": "スキーマタイプ"
+      },
+      "action": {
+        "enter_env": "環境構築へ進む ➝",
+        "creating": "作成中..."
+      }
+    },
+    "step2": {
+      "init": "シミュレーション・インスタンス初期化",
+      "persona": "エージェント・ペルソナ生成",
+      "config": "デュアルプラットフォーム設定生成",
+      "orchestration": "初期アクティベーション・オーケストレーション",
+      "ready": "準備完了",
+      "preview_title": "生成済みエージェント・ペルソナ",
+      "task_complete": "非同期タスク完了",
+      "system_log_title": "SYSTEM DASHBOARD",
+      "status": {
+        "completed": "完了",
+        "initializing": "初期化中",
+        "processing": "処理中",
+        "waiting": "待機中",
+        "active": "進行中"
+      },
+      "desc": {
+        "init": "新しいシミュレーション・インスタンスを作成し、世界設定のテンプレートを取得します。",
+        "persona": "知識グラフからエンティティと関係を抽出し、現実の種に基づく記憶と行動傾向を持つ個体を初期化します。",
+        "config": "LLM が世界の時間進行、推薦アルゴリズム、各個体の活動時間帯や発話頻度などを自動で組み立てます。",
+        "orchestration": "ナラティブの方向性に沿って、初期イベントとホットトピックを配置し、世界の初期状態を整えます。",
+        "ready": "シミュレーション環境の準備が整いました。いつでも実行を開始できます。"
+      },
+      "stats": {
+        "agents": "現在のエージェント数",
+        "expected": "想定エージェント総数",
+        "topics": "関連トピック数"
+      },
+      "config_labels": {
+        "hours": "総シミュレーション時間",
+        "round_min": "1 ラウンドあたり",
+        "total_rounds": "総ラウンド数",
+        "agents_hour": "1 時間あたりのアクティブ数",
+        "peak": "ピーク時間帯",
+        "work": "就業時間帯",
+        "morning": "朝の時間帯",
+        "off_peak": "低活動時間帯",
+        "agent_config": "エージェント設定",
+        "timeline": "活動タイムライン",
+        "posts": "投稿 / 時",
+        "comments": "コメント / 時",
+        "delay": "応答遅延",
+        "activity": "活動レベル",
+        "sentiment": "感情傾向",
+        "influence": "影響力",
+        "algorithm": "推薦アルゴリズム設定",
+        "platform1": "プラットフォーム 1: スクエア / タイムライン",
+        "platform2": "プラットフォーム 2: トピック / コミュニティ",
+        "reasoning": "LLM の設定理由"
+      },
+      "platform_params": {
+        "recency": "鮮度重み",
+        "popularity": "人気重み",
+        "relevance": "関連性重み",
+        "viral": "バイラル閾値",
+        "echo": "エコーチェンバー強度"
+      },
+      "orchestration_labels": {
+        "direction": "ナラティブ誘導方向",
+        "hot_topics": "初期ホットトピック",
+        "initial_posts": "初期アクティベーションシーケンス"
+      },
+      "rounds": {
+        "title": "シミュレーションラウンド設定",
+        "desc": "MiroFish は推演世界を {hours} 時間で設計しました。1 ラウンドは現実時間の {minutes} 分に相当します。",
+        "custom": "カスタム",
+        "estimated": "エージェント規模が 100 の場合: 想定所要時間 約 {time} 分",
+        "recommend": "推奨",
+        "tip": "初回実行ではカスタムモードへ切り替え、ラウンド数を減らして素早くプレビューすることを推奨します。エラーの切り分けもしやすくなります。"
+      },
+      "actions": {
+        "back": "← グラフ構築へ戻る",
+        "start": "デュアル世界シミュレーションを開始 ➝"
+      },
+      "persona_modal": {
+        "age": "年齢",
+        "gender": "性別",
+        "country": "国 / 地域",
+        "mbti": "MBTI",
+        "bio": "ペルソナ紹介",
+        "related_topics": "関連トピック",
+        "background": "詳細ペルソナ背景",
+        "dimensions": {
+          "exp": "イベント経験の全景",
+          "exp_desc": "このイベントにおける行動軌跡",
+          "profile": "行動パターン",
+          "profile_desc": "経験の要約と行動傾向",
+          "memory": "固有の記憶刻印",
+          "memory_desc": "現実の種に基づいて形成された記憶",
+          "social": "社会関係ネットワーク",
+          "social_desc": "個体のつながりと対話の構造"
+        }
+      }
+    },
+    "step3": {
+      "title": "シミュレーション実行中",
+      "platform1": "スクエア / タイムライン",
+      "platform2": "トピック / コミュニティ",
+      "round": "ラウンド",
+      "elapsed": "経過時間",
+      "actions": "アクション数",
+      "report_btn": "分析レポート生成",
+      "report_btn_loading": "生成中...",
+      "total_events": "総イベント数",
+      "waiting": "イベントを待機中...",
+      "tooltip_title": "利用可能なアクション",
+      "log_title": "シミュレーションログ",
+      "action_labels": {
+        "post": "投稿",
+        "quote": "引用",
+        "repost": "リポスト",
+        "like": "いいね",
+        "comment": "コメント",
+        "dislike": "低評価",
+        "search": "検索",
+        "trend": "話題確認",
+        "follow": "フォロー",
+        "mute": "ミュート",
+        "refresh": "更新",
+        "idle": "待機",
+        "upvote": "支持",
+        "downvote": "反対"
+      },
+      "timeline": {
+        "reposted_from": "@{name} をリポスト",
+        "liked_post": "@{name} の投稿にいいね",
+        "reply_to_post": "投稿 #{id} への返信",
+        "search_query": "検索クエリ",
+        "followed": "@{name} をフォロー",
+        "upvoted_post": "投稿を支持",
+        "downvoted_post": "投稿に反対",
+        "action_skipped": "アクションなし"
+      }
+    },
+    "step4": {
+      "report_tag": "分析レポート",
+      "generating": "「{title}」を生成中",
+      "waiting": "レポートの計画を待っています",
+      "metrics": {
+        "sections": "完了セクション",
+        "elapsed": "経過時間",
+        "tools": "ツール呼び出し"
+      },
+      "next_btn": "深層対話へ進む",
+      "sections_planned": "計画済みセクション {count} 件",
+      "section_generated_hint": "「{title}」の生成が完了しました",
+      "completed_banner": "レポート生成が完了しました",
+      "waiting_activity": "アクティビティを待機中...",
+      "console_title": "システムログ",
+      "status": {
+        "failed": "失敗",
+        "completed": "完了",
+        "running": "生成中",
+        "stale": "処理継続中",
+        "waiting": "待機中"
+      },
+      "workflow": {
+        "planning": "計画 / アウトライン",
+        "complete": "完了",
+        "in_progress": "進行中",
+        "finalizing": "最終調整中",
+        "waiting": "開始待ち"
+      },
+      "info": {
+        "simulation": "シミュレーション",
+        "requirement": "要件",
+        "iteration": "反復",
+        "tools": "ツール",
+        "final": "最終回答"
+      },
+      "actions": {
+        "show_params": "パラメータを表示",
+        "hide_params": "パラメータを隠す",
+        "structured_view": "整形表示",
+        "raw_output": "生データ表示",
+        "show_response": "応答を表示",
+        "hide_response": "応答を隠す"
+      }
+    },
+    "step5": {
+      "action_bar": {
+        "title": "対話ツール",
+        "subtitle": "{count} 人のエージェントが利用可能"
+      },
+      "tabs": {
+        "report_chat": "Report Agent と対話",
+        "agent_chat_placeholder": "エージェントを選択",
+        "survey": "アンケート"
+      },
+      "dropdown": {
+        "header": "会話相手を選択"
+      },
+      "tools": {
+        "title": "Report Agent の利用ツール",
+        "subtitle": "分析、横断検索、要点整理、インタビューを組み合わせて回答します。",
+        "insight": {
+          "name": "深掘り分析",
+          "desc": "複数の情報源から洞察を組み立てます。"
+        },
+        "panorama": {
+          "name": "横断検索",
+          "desc": "世界全体の状況や対立点を素早く横断します。"
+        },
+        "quick": {
+          "name": "高速要約",
+          "desc": "重要な変化点だけを短く整理します。"
+        },
+        "interview": {
+          "name": "個別インタビュー",
+          "desc": "特定エージェントの視点を直接引き出します。"
+        }
+      },
+      "chat": {
+        "report_empty": "Report Agent に質問して、分析の根拠や次の打ち手を掘り下げてください。",
+        "agent_empty": "エージェントを選んで、その個体の記憶や立場を詳しく確認してください。",
+        "input_placeholder": "質問を入力してください..."
+      },
+      "sender": {
+        "you": "あなた",
+        "report_agent": "Report Agent",
+        "agent": "エージェント"
+      },
+      "survey": {
+        "select_agents": "対象エージェント",
+        "selected_count": "{total} 人中 {count} 人を選択",
+        "question_label": "質問内容",
+        "input_placeholder": "複数のエージェントに投げたい質問を入力してください",
+        "submit_btn": "アンケートを送信",
+        "results_title": "アンケート結果",
+        "results_count": "{count} 件の回答"
+      }
+    }
+  },
+  "common": {
+    "loading": "読み込み中...",
+    "error": "エラー",
+    "success": "成功",
+    "cancel": "キャンセル",
+    "confirm": "確定",
+    "delete": "削除",
+    "yes": "はい",
+    "no": "いいえ",
+    "select_all": "すべて選択",
+    "clear": "クリア",
+    "close": "閉じる",
+    "refresh": "再読み込み"
+  }
+}
