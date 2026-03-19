@@ -1,194 +1,289 @@
 <div align="center">
 
-<img src="./static/image/MiroFish_logo_compressed.jpeg" alt="MiroFish Logo" width="75%"/>
+<img src="./static/image/MiroFish_logo_compressed.jpeg" alt="MiroFish Logo" width="72%"/>
 
-<a href="https://trendshift.io/repositories/16144" target="_blank"><img src="https://trendshift.io/api/badge/repositories/16144" alt="666ghj%2FMiroFish | Trendshift" style="width: 250px; height: 55px;" width="250" height="55"/></a>
+# MiroFish_kai
 
-简洁通用的群体智能引擎，预测万物
-</br>
-<em>A Simple and Universal Swarm Intelligence Engine, Predicting Anything</em>
+群衆シミュレーションとレポート生成をまとめて扱える、MiroFish 系の公開用 fork です。
 
-<a href="https://www.shanda.com/" target="_blank"><img src="./static/image/shanda_logo.png" alt="666ghj%2MiroFish | Shanda" height="40"/></a>
-
-[![GitHub Stars](https://img.shields.io/github/stars/666ghj/MiroFish?style=flat-square&color=DAA520)](https://github.com/666ghj/MiroFish/stargazers)
-[![GitHub Watchers](https://img.shields.io/github/watchers/666ghj/MiroFish?style=flat-square)](https://github.com/666ghj/MiroFish/watchers)
-[![GitHub Forks](https://img.shields.io/github/forks/666ghj/MiroFish?style=flat-square)](https://github.com/666ghj/MiroFish/network)
-[![Docker](https://img.shields.io/badge/Docker-Build-2496ED?style=flat-square&logo=docker&logoColor=white)](https://hub.docker.com/)
-[![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/666ghj/MiroFish)
-
-[![Discord](https://img.shields.io/badge/Discord-Join-5865F2?style=flat-square&logo=discord&logoColor=white)](https://discord.com/channels/1469200078932545606/1469201282077163739)
-[![X](https://img.shields.io/badge/X-Follow-000000?style=flat-square&logo=x&logoColor=white)](https://x.com/mirofish_ai)
-[![Instagram](https://img.shields.io/badge/Instagram-Follow-E4405F?style=flat-square&logo=instagram&logoColor=white)](https://www.instagram.com/mirofish_ai/)
-
-[English](./README-EN.md) | [中文文档](./README.md)
+[この fork](https://github.com/kouminiku-9900/MiroFish_kai) | [元リポジトリ](https://github.com/666ghj/MiroFish) | [English](./README-EN.md)
 
 </div>
 
-## ⚡ 项目概述
+## このリポジトリについて
 
-**MiroFish** 是一款基于多智能体技术的新一代 AI 预测引擎。通过提取现实世界的种子信息（如突发新闻、政策草案、金融信号），自动构建出高保真的平行数字世界。在此空间内，成千上万个具备独立人格、长期记忆与行为逻辑的智能体进行自由交互与社会演化。你可透过「上帝视角」动态注入变量，精准推演未来走向——**让未来在数字沙盘中预演，助决策在百战模拟后胜出**。
+このリポジトリは、[666ghj/MiroFish](https://github.com/666ghj/MiroFish) をベースにした fork です。  
+この fork では、主に次の整理を入れています。
 
-> 你只需：上传种子材料（数据分析报告或者有趣的小说故事），并用自然语言描述预测需求</br>
-> MiroFish 将返回：一份详尽的预测报告，以及一个可深度交互的高保真数字世界
+- GUI の日本語寄せと閲覧性の調整
+- 公開前サニタイズ
+  - `.env`
+  - `test_data/`
+  - `backend/uploads/`
+  - `log/`
+  - `backend/logs/`
+  - 公開不要の QR / サムネイル画像
+- 初見でも動かしやすい README と起動導線の整備
 
-### 我们的愿景
+公式の本家実装や由来を追いたい場合は、まず [元リポジトリ](https://github.com/666ghj/MiroFish) を見てください。  
+この fork は「日本語で使いやすくする」「公開できる状態に整える」ことを主目的にしています。
 
-MiroFish 致力于打造映射现实的群体智能镜像，通过捕捉个体互动引发的群体涌现，突破传统预测的局限：
+## これは何ができるのか
 
-- **于宏观**：我们是决策者的预演实验室，让政策与公关在零风险中试错
-- **于微观**：我们是个人用户的创意沙盘，无论是推演小说结局还是探索脑洞，皆可有趣、好玩、触手可及
+MiroFish は、投入した資料や要件をもとに、以下の流れで仮想社会を組み立ててシミュレーションするアプリです。
 
-从严肃预测到趣味仿真，我们让每一个如果都能看见结果，让预测万物成为可能。
+1. グラフを構築する
+2. エージェントの人設や環境設定を作る
+3. シミュレーションを回す
+4. レポートを生成する
+5. シミュレーション世界やレポートと対話する
 
-## 🌐 在线体验
+今回の fork では、現行導線の GUI を中心に日本語で扱いやすい形へ寄せています。
 
-欢迎访问在线 Demo 演示环境，体验我们为你准备的一次关于热点舆情事件的推演预测：[mirofish-live-demo](https://666ghj.github.io/mirofish-demo/)
+## まず結論
 
-## 📸 系统截图
+何もわからない状態から動かすなら、この順で進めれば足ります。
 
-<div align="center">
-<table>
-<tr>
-<td><img src="./static/image/Screenshot/运行截图1.png" alt="截图1" width="100%"/></td>
-<td><img src="./static/image/Screenshot/运行截图2.png" alt="截图2" width="100%"/></td>
-</tr>
-<tr>
-<td><img src="./static/image/Screenshot/运行截图3.png" alt="截图3" width="100%"/></td>
-<td><img src="./static/image/Screenshot/运行截图4.png" alt="截图4" width="100%"/></td>
-</tr>
-<tr>
-<td><img src="./static/image/Screenshot/运行截图5.png" alt="截图5" width="100%"/></td>
-<td><img src="./static/image/Screenshot/运行截图6.png" alt="截图6" width="100%"/></td>
-</tr>
-</table>
-</div>
+1. この fork を clone する
+2. `.env.example` を `.env` にコピーする
+3. 自分の API key を `.env` に入れる
+4. `npm run setup:all` を実行する
+5. `./start.sh` を実行する
+6. ターミナルに出た URL をブラウザで開く
 
-## 🎬 演示视频
+停止するときは `./start.sh stop` です。
 
-### 1. 武汉大学舆情推演预测 + MiroFish项目讲解
+## 前提環境
 
-[视频链接](https://www.bilibili.com/video/BV1VYBsBHEMY/)
+| ツール | 推奨バージョン | 確認コマンド |
+| --- | --- | --- |
+| Node.js | 18 以上 | `node -v` |
+| npm | Node.js 同梱 | `npm -v` |
+| Python | 3.11 または 3.12 | `python3 --version` |
+| uv | 最新推奨 | `uv --version` |
 
-### 2. 《红楼梦》失传结局推演预测
+macOS / Linux 前提で書いています。Windows の場合は WSL を使うのが無難です。
 
-[视频链接](https://www.bilibili.com/video/BV1cPk3BBExq)
+## いちばん安全な起動方法
 
-> **金融方向推演预测**、**时政要闻推演预测**等示例陆续更新中...
+この repo では、現状 `./start.sh` が一番無難です。
 
-## 🔄 工作流程
+- backend を先に起動する
+- `/health` を確認してから frontend を起動する
+- PID 管理をする
+- 停止を `./start.sh stop` に寄せられる
 
-1. **图谱构建**：现实种子提取 & 个体与群体记忆注入 & GraphRAG构建
-2. **环境搭建**：实体关系抽取 & 人设生成 & 环境配置Agent注入仿真参数
-3. **开始模拟**：双平台并行模拟 & 自动解析预测需求 & 动态更新时序记忆
-4. **报告生成**：ReportAgent拥有丰富的工具集与模拟后环境进行深度交互
-5. **深度互动**：与模拟世界中的任意一位进行对话 & 与ReportAgent进行对话
+`npm run dev` でも起動できますが、初回は `./start.sh` を勧めます。
 
-## 🚀 快速开始
+## 最短セットアップ
 
-### 一、源码部署（推荐）
-
-#### 前置要求
-
-| 工具 | 版本要求 | 说明 | 安装检查 |
-|------|---------|------|---------|
-| **Node.js** | 18+ | 前端运行环境，包含 npm | `node -v` |
-| **Python** | ≥3.11, ≤3.12 | 后端运行环境 | `python --version` |
-| **uv** | 最新版 | Python 包管理器 | `uv --version` |
-
-#### 1. 配置环境变量
+### 1. clone
 
 ```bash
-# 复制示例配置文件
-cp .env.example .env
-
-# 编辑 .env 文件，填入必要的 API 密钥
+git clone https://github.com/kouminiku-9900/MiroFish_kai.git
+cd MiroFish_kai
 ```
 
-**必需的环境变量：**
+### 2. `.env` を作る
+
+```bash
+cp .env.example .env
+```
+
+次に `.env` を開いて、自分の値を入れてください。
+
+最低限、意識するのはこの 3 つです。
+
+- `GOOGLE_AI_API_KEY`
+- `ZEP_API_KEY`
+- `SECRET_KEY`
+
+`SECRET_KEY` は自分で長いランダム文字列を入れてください。例えば:
+
+```bash
+python3 -c "import secrets; print(secrets.token_urlsafe(32))"
+```
+
+その出力を `.env` の `SECRET_KEY=` に入れれば十分です。
+
+### 3. `.env` の記入例
 
 ```env
-# Gemini 配置（默认且唯一的运行时 LLM）
+# Gemini を使う
 LLM_PROVIDER=google
 LLM_MODEL_NAME=gemini-3.1-flash-lite-preview
 GOOGLE_AI_API_KEY=your_google_ai_api_key_here
 
-# Flask / Session 密钥（请替换为长随机字符串）
+# Flask / session 用
 SECRET_KEY=put_a_long_random_secret_here
 
-# 兼容字段（当前 Gemini 运行时不会使用，可留空）
+# 互換用。今の実行系では空でよい
 LLM_API_KEY=
 LLM_BASE_URL=
 
-# Zep Cloud 配置
-# 每月免费额度即可支撑简单使用：https://app.getzep.com/
+# Zep Cloud
 ZEP_API_KEY=your_zep_api_key_here
 
-# 加速 Gemini 配置（可选）
+# 任意。並列シミュレーションで別 key を使いたいときだけ設定
 LLM_BOOST_API_KEY=your_second_google_ai_api_key_here
 LLM_BOOST_MODEL_NAME=gemini-3.1-flash-lite-preview
 ```
 
-#### 2. 安装依赖
+補足:
+
+- `GOOGLE_AI_API_KEY` は実質必須です
+- `ZEP_API_KEY` がないと graph 構築系が動きません
+- `LLM_BOOST_API_KEY` は任意です
+- `.env` は Git に commit しないでください
+
+### 4. 依存を入れる
 
 ```bash
-# 一键安装所有依赖（根目录 + 前端 + 后端）
 npm run setup:all
 ```
 
-或者分步安装：
+これで次が入ります。
+
+- ルートの Node 依存
+- `frontend` の Node 依存
+- `backend` の Python 依存
+- `backend/.venv`
+
+### 5. 起動する
 
 ```bash
-# 安装 Node 依赖（根目录 + 前端）
-npm run setup
-
-# 安装 Python 依赖（后端，自动创建虚拟环境）
-npm run setup:backend
+./start.sh
 ```
 
-#### 3. 启动服务
+起動に成功すると、だいたい次のようになります。
+
+- backend: `http://localhost:5001`
+- frontend: `http://localhost:5173` 前後
+
+frontend のポートは Vite 側で決まるので、実際には `./start.sh` が表示した URL を見てください。
+
+### 6. 動作確認
+
+最低限、ここを見れば大丈夫です。
+
+1. `http://localhost:5001/health` を開く
+2. frontend の URL を開く
+3. ホーム画面が出る
+4. ファイル投入と要件入力ができる
+
+### 7. 停止する
 
 ```bash
-# 同时启动前后端（在项目根目录执行）
-npm run dev
+./start.sh stop
 ```
 
-**服务地址：**
-- 前端：`http://localhost:3000`
-- 后端 API：`http://localhost:5001`
+## Codex と一緒に進めるなら
 
-**单独启动：**
+この repo は、Codex に作業させながら進める前提と相性が良いです。  
+repo を開いた状態で、次のように頼めば進めやすいです。
 
-```bash
-npm run backend   # 仅启动后端
-npm run frontend  # 仅启动前端
+```text
+この repo をセットアップして。足りない依存があれば教えて。
 ```
 
-### 二、Docker 部署
-
-```bash
-# 1. 配置环境变量（同源码部署）
-cp .env.example .env
-
-# 2. 拉取镜像并启动
-docker compose up -d
+```text
+.env.example を見て、私が入れるべき値だけを日本語で整理して。
 ```
 
-默认会读取根目录下的 `.env`，并映射端口 `3000（前端）/5001（后端）`
+```text
+./start.sh で起動して、動かなかったら原因を切り分けて。
+```
 
-> 在 `docker-compose.yml` 中已通过注释提供加速镜像地址，可按需替换
+```text
+ホーム画面から最後まで一通り触って、まだ中国語が残っている UI を探して。
+```
 
-## 📄 致谢
+```text
+公開してはいけないファイルが混ざっていないか、git diff と gitignore を確認して。
+```
 
-**MiroFish 得到了盛大集团的战略支持和孵化！**
+## つまずきやすいポイント
 
-MiroFish 的仿真引擎由 **[OASIS](https://github.com/camel-ai/oasis)** 驱动，我们衷心感谢 CAMEL-AI 团队的开源贡献！
+### `uv: command not found`
 
-## 📈 项目统计
+`uv` が入っていません。インストールしてから `npm run setup:all` をやり直してください。
 
-<a href="https://www.star-history.com/#666ghj/MiroFish&type=date&legend=top-left">
- <picture>
-   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=666ghj/MiroFish&type=date&theme=dark&legend=top-left" />
-   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=666ghj/MiroFish&type=date&legend=top-left" />
-   <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=666ghj/MiroFish&type=date&legend=top-left" />
- </picture>
-</a>
+### `./start.sh` で backend が上がらない
+
+先に `npm run setup:all` をやってください。  
+この fork の `start.sh` は `backend/.venv/bin/python` がない場合、その場で止まるようにしてあります。
+
+### frontend が `3000` では開かない
+
+今の frontend は Vite なので、固定で `3000` とは限りません。  
+`./start.sh` が出した URL をそのまま開いてください。
+
+### `GOOGLE_AI_API_KEY` を入れたのに動かない
+
+次を確認してください。
+
+- `.env` を repo ルートに置いているか
+- キー名を間違えていないか
+- key の前後に余計な空白が入っていないか
+- backend を再起動したか
+
+### `ZEP_API_KEY` を入れていない
+
+一部機能は動いても、graph 構築や記憶系の処理が使えません。  
+「まず全部動かしたい」なら `ZEP_API_KEY` も入れてください。
+
+## ディレクトリの見方
+
+- [`frontend/`](./frontend)
+  - Vue フロントエンド
+- [`backend/`](./backend)
+  - Flask API とシミュレーション実装
+- [`.env.example`](./.env.example)
+  - 公開用テンプレート
+- [`start.sh`](./start.sh)
+  - いちばん無難な起動スクリプト
+- [`SECURITY_DATA_POLICY.md`](./SECURITY_DATA_POLICY.md)
+  - 公開してよいもの / だめなものの基準
+
+## 公開とセキュリティ
+
+この fork では、公開物に次を含めない方針です。
+
+- `.env`
+- `test_data/`
+- `backend/uploads/`
+- `log/`
+- `backend/logs/`
+- ローカル生成レポート
+- ローカル会話ログ
+- 公開不要な QR / 顔入りサムネイル
+
+公開可否の基準は [`SECURITY_DATA_POLICY.md`](./SECURITY_DATA_POLICY.md) にまとめています。
+
+## システム画面
+
+<div align="center">
+<table>
+<tr>
+<td><img src="./static/image/Screenshot/运行截图1.png" alt="画面 1" width="100%"/></td>
+<td><img src="./static/image/Screenshot/运行截图2.png" alt="画面 2" width="100%"/></td>
+</tr>
+<tr>
+<td><img src="./static/image/Screenshot/运行截图3.png" alt="画面 3" width="100%"/></td>
+<td><img src="./static/image/Screenshot/运行截图4.png" alt="画面 4" width="100%"/></td>
+</tr>
+<tr>
+<td><img src="./static/image/Screenshot/运行截图5.png" alt="画面 5" width="100%"/></td>
+<td><img src="./static/image/Screenshot/运行截图6.png" alt="画面 6" width="100%"/></td>
+</tr>
+</table>
+</div>
+
+## クレジット
+
+- ベース実装: [666ghj/MiroFish](https://github.com/666ghj/MiroFish)
+- シミュレーション基盤: [camel-ai/oasis](https://github.com/camel-ai/oasis)
+- ライセンス: AGPL-3.0
+
+本家の設計・発想・主要機能の由来は upstream にあります。  
+この fork は、その上に公開整理と日本語運用向けの調整を重ねたものです。

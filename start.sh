@@ -18,6 +18,13 @@ NC='\033[0m'
 start_backend() {
     echo -e "${GREEN}[Backend]${NC} Starting on port 5001..."
 
+    mkdir -p "$DIR/backend/logs"
+
+    if [ ! -x "$DIR/backend/.venv/bin/python" ]; then
+        echo -e "${RED}[Backend]${NC} Missing backend virtualenv. Run ${CYAN}npm run setup:all${NC} first."
+        return 1
+    fi
+
     # Kill existing
     if [ -f "$BACKEND_PID_FILE" ]; then
         kill $(cat "$BACKEND_PID_FILE") 2>/dev/null
@@ -44,6 +51,11 @@ start_backend() {
 
 start_frontend() {
     echo -e "${CYAN}[Frontend]${NC} Starting..."
+
+    if ! command -v npm >/dev/null 2>&1; then
+        echo -e "${RED}[Frontend]${NC} npm is not installed."
+        return 1
+    fi
 
     # Kill existing
     if [ -f "$FRONTEND_PID_FILE" ]; then
