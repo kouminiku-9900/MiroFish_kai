@@ -73,7 +73,7 @@ class Config:
         """値がプレースホルダーかどうかを確認"""
         if not value:
             return True
-        return value.startswith('your_') or value.startswith('sk-placeholder')
+        return value.startswith('your_') or value in {'put_a_long_random_secret_here', 'change-me'}
 
     @classmethod
     def validate(cls):
