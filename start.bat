@@ -13,11 +13,26 @@ if /i "%~1"=="stop" goto :stop
 echo === MiroFish Engine ===
 echo.
 
-:: .venv の存在確認
+:: 依存関係の自動セットアップ
+if not exist "%DIR%node_modules" (
+    echo [Info] ルートディレクトリの npm パッケージをインストールしています...
+    npm install
+)
+
+if not exist "%DIR%frontend\node_modules" (
+    echo [Info] frontend の npm パッケージをインストールしています...
+    cd /d "%DIR%frontend"
+    call npm install
+    cd /d "%DIR%"
+)
+
 if not exist "%DIR%backend\.venv\Scripts\python.exe" (
-    echo [Error] backend の仮想環境が見つかりません。
-    echo         先に npm run setup:all を実行してください。
-    exit /b 1
+    echo [Info] backend の仮想環境が見つかりません。作成しています...
+    cd /d "%DIR%backend"
+    python -m venv .venv
+    call .venv\Scripts\activate.bat
+    pip install -r requirements.txt
+    cd /d "%DIR%"
 )
 
 :: npm run dev で backend + frontend を同時起動

@@ -20,9 +20,17 @@ start_backend() {
 
     mkdir -p "$DIR/backend/logs"
 
+    if [ ! -d "$DIR/node_modules" ]; then
+        echo -e "${YELLOW}[Root]${NC} Installing root dependencies..."
+        npm install
+    fi
+
     if [ ! -x "$DIR/backend/.venv/bin/python" ]; then
-        echo -e "${RED}[Backend]${NC} Missing backend virtualenv. Run ${CYAN}npm run setup:all${NC} first."
-        return 1
+        echo -e "${YELLOW}[Backend]${NC} Setting up virtualenv..."
+        cd "$DIR/backend"
+        python3 -m venv .venv
+        .venv/bin/pip install -r requirements.txt
+        cd "$DIR"
     fi
 
     # Kill existing
@@ -55,6 +63,13 @@ start_frontend() {
     if ! command -v npm >/dev/null 2>&1; then
         echo -e "${RED}[Frontend]${NC} npm is not installed."
         return 1
+    fi
+
+    if [ ! -d "$DIR/frontend/node_modules" ]; then
+        echo -e "${YELLOW}[Frontend]${NC} Installing dependencies..."
+        cd "$DIR/frontend"
+        npm install
+        cd "$DIR"
     fi
 
     # Kill existing
