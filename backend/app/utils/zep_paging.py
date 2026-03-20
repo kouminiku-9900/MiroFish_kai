@@ -42,16 +42,32 @@ def _fetch_page_with_retry(
     for attempt in range(max_retries):
         try:
             return api_call(*args, **kwargs)
-        except (ConnectionError, TimeoutError, OSError, InternalServerError) as e:
+        except Exception as e:
             last_exception = e
-            if attempt < max_retries - 1:
-                logger.warning(
-                    f"Zep {page_description} attempt {attempt + 1} failed: {str(e)[:100]}, retrying in {delay:.1f}s..."
-                )
-                time.sleep(delay)
-                delay *= 2
+            error_str = str(e).lower()
+            
+            is_rate_limit = '429' in error_str or 'rate limit' in error_str
+            is_server_error = any(code in error_str for code in ['500', '502', '503', '504'])
+            is_network_error = isinstance(e, (ConnectionError, TimeoutError, OSError, InternalServerError))
+            
+            if is_rate_limit or is_server_error or is_network_error:
+                if attempt < max_retries - 1:
+                    wait_time = delay
+                    if is_rate_limit:
+                        import re
+                        match = re.search(r"'retry-after':\s*'(\d+)'", str(e), re.IGNORECASE)
+                        wait_time = float(match.group(1)) + 2.0 if match else 62.0
+                        
+                    logger.warning(
+                        f"Zep {page_description} attempt {attempt + 1} failed: {str(e)[:100]}, retrying in {wait_time:.1f}s..."
+                    )
+                    time.sleep(wait_time)
+                    if not is_rate_limit:
+                        delay *= 2
+                else:
+                    logger.error(f"Zep {page_description} failed after {max_retries} attempts: {str(e)}")
             else:
-                logger.error(f"Zep {page_description} failed after {max_retries} attempts: {str(e)}")
+                raise
 
     assert last_exception is not None
     raise last_exception

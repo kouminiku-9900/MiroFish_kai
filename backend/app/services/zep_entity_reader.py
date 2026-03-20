@@ -112,13 +112,24 @@ class ZepEntityReader:
                 return func()
             except Exception as e:
                 last_exception = e
+                
+                error_str = str(e).lower()
+                is_rate_limit = '429' in error_str or 'rate limit' in error_str
+                
                 if attempt < max_retries - 1:
+                    wait_time = delay
+                    if is_rate_limit:
+                        import re
+                        match = re.search(r"'retry-after':\s*'(\d+)'", str(e), re.IGNORECASE)
+                        wait_time = float(match.group(1)) + 2.0 if match else 62.0
+                        
                     logger.warning(
                         f"Zep {operation_name} 第 {attempt + 1} 次尝试失败: {str(e)[:100]}, "
-                        f"{delay:.1f}秒后重试..."
+                        f"{wait_time:.1f}秒后重试..."
                     )
-                    time.sleep(delay)
-                    delay *= 2  # 指数退避
+                    time.sleep(wait_time)
+                    if not is_rate_limit:
+                        delay *= 2  # 指数退避
                 else:
                     logger.error(f"Zep {operation_name} 在 {max_retries} 次尝试后仍失败: {str(e)}")
         

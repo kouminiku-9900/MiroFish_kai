@@ -449,13 +449,23 @@ class ZepToolsService:
                 return func()
             except Exception as e:
                 last_exception = e
+                error_str = str(e).lower()
+                is_rate_limit = '429' in error_str or 'rate limit' in error_str
+                
                 if attempt < max_retries - 1:
+                    wait_time = delay
+                    if is_rate_limit:
+                        import re
+                        match = re.search(r"'retry-after':\s*'(\d+)'", str(e), re.IGNORECASE)
+                        wait_time = float(match.group(1)) + 2.0 if match else 62.0
+                        
                     logger.warning(
                         f"Zep {operation_name} 第 {attempt + 1} 回目の試行が失敗しました: {str(e)[:100]}, "
-                        f"{delay:.1f}秒後にリトライします..."
+                        f"{wait_time:.1f}秒後にリトライします..."
                     )
-                    time.sleep(delay)
-                    delay *= 2
+                    time.sleep(wait_time)
+                    if not is_rate_limit:
+                        delay *= 2
                 else:
                     logger.error(f"Zep {operation_name} は {max_retries} 回の試行後も失敗しました: {str(e)}")
         

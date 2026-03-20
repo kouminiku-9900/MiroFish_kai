@@ -420,8 +420,17 @@ class ZepGraphMemoryUpdater:
                 
             except Exception as e:
                 if attempt < self.MAX_RETRIES - 1:
-                    logger.warning(f"批量发送到Zep失败 (尝试 {attempt + 1}/{self.MAX_RETRIES}): {e}")
-                    time.sleep(self.RETRY_DELAY * (attempt + 1))
+                    error_str = str(e).lower()
+                    is_rate_limit = '429' in error_str or 'rate limit' in error_str
+                    
+                    wait_time = self.RETRY_DELAY * (attempt + 1)
+                    if is_rate_limit:
+                        import re
+                        match = re.search(r"'retry-after':\s*'(\d+)'", str(e), re.IGNORECASE)
+                        wait_time = float(match.group(1)) + 2.0 if match else 62.0
+                        
+                    logger.warning(f"批量发送到Zep失败 (尝试 {attempt + 1}/{self.MAX_RETRIES}, 等待 {wait_time:.1f}s): {e}")
+                    time.sleep(wait_time)
                 else:
                     logger.error(f"批量发送到Zep失败，已重试{self.MAX_RETRIES}次: {e}")
                     self._failed_count += 1
